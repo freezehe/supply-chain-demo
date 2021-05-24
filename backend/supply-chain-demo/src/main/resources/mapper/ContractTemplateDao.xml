@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.freeze.supplychain.dao.ContractTemplateDao">
+<mapper namespace="com.jiuyv.supplychain.dao.ContractTemplateDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.freeze.supplychain.entity.ContractTemplateEntity" id="contractTemplateMap">
+    <resultMap type="com.jiuyv.supplychain.entity.ContractTemplateEntity" id="contractTemplateMap">
         <result property="id" column="id"/>
         <result property="contractName" column="contract_name"/>
         <result property="contractAbi" column="contract_abi"/>
         <result property="contractBin" column="contract_bin"/>
     </resultMap>
     
-    <select id="queryByTemplate" parameterType="java.lang.String" resultType="com.freeze.supplychain.entity.ContractTemplateEntity">
+    <select id="queryByTemplate" parameterType="java.lang.String" resultType="com.jiuyv.supplychain.entity.ContractTemplateEntity">
     	select * from contract_template where contract_name = #{template}
     </select>
 

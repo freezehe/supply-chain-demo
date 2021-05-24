@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.freeze.supplychain.dao.ItemDao">
+<mapper namespace="com.jiuyv.supplychain.dao.ItemDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.freeze.supplychain.entity.ItemEntity" id="itemMap">
+    <resultMap type="com.jiuyv.supplychain.entity.ItemEntity" id="itemMap">
         <result property="id" column="id"/>
         <result property="chainId" column="chain_id"/>
         <result property="lastItemId" column="last_item_id"/>
@@ -17,11 +17,11 @@
         <result property="isSigned" column="is_signed"/>
     </resultMap>
     
-    <select id="queryByChainId" parameterType="java.lang.Integer" resultType="com.freeze.supplychain.entity.ItemEntity">
+    <select id="queryByChainId" parameterType="java.lang.Integer" resultType="com.jiuyv.supplychain.entity.ItemEntity">
     	select * from item where chain_id = #{chainId}
     </select>
     
-    <select id="queryInfo" parameterType="com.freeze.supplychain.entity.ItemEntity" resultType="com.freeze.supplychain.entity.ItemEntity">
+    <select id="queryInfo" parameterType="com.jiuyv.supplychain.entity.ItemEntity" resultType="com.jiuyv.supplychain.entity.ItemEntity">
     	select * from item where chain_id = #{chainId} and participater_id = #{participaterId}
     </select>
 
