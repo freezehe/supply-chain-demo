@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.freeze.supplychain.dao.ContractDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.freeze.supplychain.entity.ContractEntity" id="contractMap">
+        <result property="id" column="id"/>
+        <result property="contractName" column="contract_name"/>
+        <result property="addr" column="addr"/>
+        <result property="type" column="type"/>
+        <result property="contractDescribe" column="contract_describe"/>
+        <result property="insertedAt" column="inserted_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="chainId" column="chain_id"/>
+        <result property="ownerDid" column="owner_did"/>
+    </resultMap>
+
+    <select id="queryByChainId" parameterType="java.lang.Integer" resultType="com.freeze.supplychain.entity.ContractEntity">
+    	select * from contract where chain_id = #{chainId}
+    </select>
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.freeze.supplychain.dao.ChainDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.freeze.supplychain.entity.ChainEntity" id="chainMap">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="chainDescribe" column="chain_describe"/>
+        <result property="insertedAt" column="inserted_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="signStatus" column="sign_status"/>
+        <result property="userId" column="user_Id"/>
+    </resultMap>
+    
+    <select id="queryByUserId" parameterType="java.lang.Integer" resultType="com.freeze.supplychain.entity.ChainEntity">
+    	select * from chain where user_id = #{userId}
+    </select>
+    
+    <select id="countChains" resultType="java.lang.Integer">
+    	select count(*) from chain
+    </select>
+    
+ 
+
+
+</mapper>

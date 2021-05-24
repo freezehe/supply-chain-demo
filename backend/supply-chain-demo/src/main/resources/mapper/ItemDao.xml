@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.freeze.supplychain.dao.ItemDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.freeze.supplychain.entity.ItemEntity" id="itemMap">
+        <result property="id" column="id"/>
+        <result property="chainId" column="chain_id"/>
+        <result property="lastItemId" column="last_item_id"/>
+        <result property="levelOnChain" column="level_on_chain"/>
+        <result property="participaterId" column="participater_id"/>
+        <result property="insertedAt" column="inserted_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="portion" column="portion"/>
+        <result property="role" column="role"/>
+        <result property="isSigned" column="is_signed"/>
+    </resultMap>
+    
+    <select id="queryByChainId" parameterType="java.lang.Integer" resultType="com.freeze.supplychain.entity.ItemEntity">
+    	select * from item where chain_id = #{chainId}
+    </select>
+    
+    <select id="queryInfo" parameterType="com.freeze.supplychain.entity.ItemEntity" resultType="com.freeze.supplychain.entity.ItemEntity">
+    	select * from item where chain_id = #{chainId} and participater_id = #{participaterId}
+    </select>
+
+
+</mapper>
